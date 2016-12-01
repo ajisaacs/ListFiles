@@ -3,6 +3,7 @@ using System.Timers;
 using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 using System.IO;
+using System.Collections.Generic;
 
 namespace ListFiles
 {
@@ -55,8 +56,25 @@ namespace ListFiles
 
             if (!Directory.Exists(dir))
                 return;
-            Directory.GetFi
-            var files = Directory.GetFiles(dir, SearchPattern);
+
+            var list = new List<string>();
+
+            if (checkBox1.Checked)
+                list.AddRange(GetFileList(dir));
+
+            if (checkBox2.Checked)
+                list.AddRange(GetDirectoryList(dir));
+
+            list.Sort();
+
+            foreach (var path in list)
+                filesBox.AppendText(path + Environment.NewLine);
+        }
+
+        private List<string> GetFileList(string searchPath)
+        {
+            var list = new List<string>();
+            var files = Directory.GetFiles(searchPath, SearchPattern);
             var showExt = showFileExtensionsBox.Checked;
             var showPath = showFullPathsBox.Checked;
 
@@ -65,13 +83,36 @@ namespace ListFiles
                 var ext = Path.GetExtension(file);
                 var name = Path.GetFileNameWithoutExtension(file);
 
-                var path = showPath ? Path.Combine(dir, name) : name;
+                var path = showPath ? Path.Combine(searchPath, name) : name;
 
                 if (showExt)
                     path += ext;
 
-                filesBox.AppendText(path + Environment.NewLine);
+                list.Add(path);
             }
+
+            return list;
+        }
+
+        private List<string> GetDirectoryList(string searchPath)
+        {
+            var list = new List<string>();
+            var showPath = showFullPathsBox.Checked;
+
+            if (showPath)
+            {
+                list.AddRange(Directory.GetDirectories(searchPath));
+            }
+            else
+            {
+                foreach (var dir in Directory.GetDirectories(searchPath))
+                {
+                    var name = Path.GetFileNameWithoutExtension(dir);
+                    list.Add(name);
+                }
+            }
+
+            return list;
         }
 
         private void showFullPathsBox_CheckedChanged(object sender, EventArgs e)
@@ -88,6 +129,11 @@ namespace ListFiles
         {
             updateTimer.Stop();
             updateTimer.Start();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UpdateList();
         }
     }
 }
