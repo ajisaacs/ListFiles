@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(710, 39);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(694, 39);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -77,14 +77,14 @@
             this.directoryBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.directoryBox.Location = new System.Drawing.Point(77, 7);
             this.directoryBox.Name = "directoryBox";
-            this.directoryBox.Size = new System.Drawing.Size(524, 25);
+            this.directoryBox.Size = new System.Drawing.Size(508, 25);
             this.directoryBox.TabIndex = 1;
             this.directoryBox.TextChanged += new System.EventHandler(this.directoryBox_TextChanged);
             // 
             // browseButton
             // 
             this.browseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseButton.Location = new System.Drawing.Point(607, 4);
+            this.browseButton.Location = new System.Drawing.Point(591, 4);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(100, 30);
             this.browseButton.TabIndex = 2;
@@ -120,7 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchPatternBox.Location = new System.Drawing.Point(416, 57);
             this.searchPatternBox.Name = "searchPatternBox";
-            this.searchPatternBox.Size = new System.Drawing.Size(306, 25);
+            this.searchPatternBox.Size = new System.Drawing.Size(290, 25);
             this.searchPatternBox.TabIndex = 6;
             this.searchPatternBox.TextChanged += new System.EventHandler(this.searchPatternBox_TextChanged);
             // 
@@ -159,8 +159,9 @@
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(650, 90);
+            this.linkLabel1.Location = new System.Drawing.Point(634, 90);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(72, 17);
             this.linkLabel1.TabIndex = 7;
@@ -175,14 +176,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.filesBox.Location = new System.Drawing.Point(12, 113);
             this.filesBox.Name = "filesBox";
-            this.filesBox.Size = new System.Drawing.Size(710, 441);
+            this.filesBox.Size = new System.Drawing.Size(694, 443);
             this.filesBox.TabIndex = 8;
             this.filesBox.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(734, 566);
+            this.ClientSize = new System.Drawing.Size(718, 568);
             this.Controls.Add(this.filesBox);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
@@ -193,6 +194,7 @@
             this.Controls.Add(this.showFileExtensionsBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(605, 356);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListFiles";
